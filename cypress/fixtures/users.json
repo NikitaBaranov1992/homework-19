@@ -1,0 +1,23 @@
+{
+  "userAutor": {
+    "email": "4932843@gmail.com",
+    "password": "GoodPassword10",
+    "name": "Никита Баранов"
+  },
+  "user1": {
+    "email": "4932843+2@gmail.com",
+    "password": "GoodPassword10",
+    "name": "Никита Баранов 2"
+  },
+  "user2": {
+    "email": "4932843+3@gmail.com",
+    "password": "GoodPassword10",
+    "name": "Никита Баранов 3"
+  },
+  "user3": {
+    "email": "4932843+4@gmail.com",
+    "password": "GoodPassword10",
+    "name": "Никита Баранов 4"
+}
+}
+
