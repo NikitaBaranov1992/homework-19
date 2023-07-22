@@ -5,24 +5,31 @@
   "main": "cypress.config.js",
   "scripts": {
     "cy:run": "npx cypress run --record --key 1317bc29-cbb9-486f-ab85-985cbfaa971a",
-    "cy:spec1": "cypress run --spec 'cypress/e2e/testfirst/*' --record --key 1317bc29-cbb9-486f-ab85-985cbfaa971a --config-file cypressfirst.config.js",
+    "cy:spec1": "cypress run --spec 'cypress/e2e/testfirst/*' --record --key 1317bc29-cbb9-486f-ab85-985cbfaa971a --config-file cypressfirst.config.js --env allure=true",
     "cy:spec2": "cypress run --spec 'cypress/e2e/testsecond/*' --record --key 1317bc29-cbb9-486f-ab85-985cbfaa971a --config-file cypresssecond.config.js",
     "cy:nokey:spec1": "cypress run --spec 'cypress/e2e/testfirst/*'",
     "cy:nokey:spec2": "cypress run --spec 'cypress/e2e/testsecond/*'",
-    "cy:nokey:parallel": "npm run cy:nokey:spec1 --browser chrome & npm run cy:nokey:spec2 --browser electron", 
+    "cy:nokey:parallel": "npm run cy:nokey:spec1 --browser chrome & npm run cy:nokey:spec2 --browser electron",
     "cy:parallel": "npm run cy:spec1 -- --browser chrome --group Spec1 --ci-build-id 2 --parallel && npm run cy:spec2 -- --browser electron --group Spec2 --ci-build-id 2 --parallel",
-    "cy:dash": "cypress run --record -- key 1317bc29-cbb9-486f-ab85-985cbfaa971a --config-file cypressfirst.config.js"
+    "cy:dash": "cypress run --record -- key 1317bc29-cbb9-486f-ab85-985cbfaa971a --config-file cypressfirst.config.js",
+    "allure:delete:report": "rmdir /q /s allure-results &rmdir /q /s allure-report",
+    "allure:result:run": "cypress run --env allure=true",
+    "allure:report": "allure generate allure-results --clean -o allure-report",
+    "allure:open:report": "allure open",
+    "allure:run": "npm run allure:delete:report & npm run allure:result:run & npm run allure:report & npm run allure:open:report"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "@badeball/cypress-cucumber-preprocessor": "^17.2.1",
+    "allure": "^0.0.0",
     "mysql": "^2.18.1",
     "package": "^1.0.1"
   },
   "devDependencies": {
     "@bahmutov/cypress-esbuild-preprocessor": "^2.2.0",
     "@faker-js/faker": "^8.0.2",
+    "@shelex/cypress-allure-plugin": "^2.40.0",
     "cypress": "^12.14.0",
     "esbuild": "^0.18.1"
   }
